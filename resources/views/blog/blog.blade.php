@@ -39,8 +39,14 @@
                             <tr>
                                 <th class="text-center" width="3%">No</th>
                                 <th>Judul</th>  
-                                <th>Slug</th>  
-                                <th>User</th>
+                                <th>ISBN</th>
+                                <th>Gambar</th>
+                                <th>Tahun</th>  
+                                <th>Ukuran</th>
+                                <th>Tebal</th>
+                                <th>Harga</th>
+                                <th>Sinopsis</th>
+                                <th>Tokopedia</th>
                                 <th class="text-center" width="3%"><i class="fa fa-cogs"></i></th>
                             </tr>
                         </thead>
@@ -87,12 +93,39 @@
                     name: 'title'
                 },
                 {
-                    data: 'slug',
-                    name: 'slug'
+                    data: 'isbn',
+                    name: 'ISBN'
                 },
                 {
-                    data: 'user.name',
-                    name: 'user.name'
+                    data: 'image',
+                    name: 'gambar',
+                    orderable: false,
+                    searchable: false,
+                    className: 'dt-body-center'
+                },
+                {
+                    data: 'year',
+                    name: 'tahun'
+                },
+                {
+                    data: 'dimension',
+                    name: 'ukuran'
+                },
+                {
+                    data: 'page',
+                    name: 'tebal'
+                },
+                {
+                    data: 'price',
+                    name: 'harga'
+                },
+                {
+                    data: 'synopsis',
+                    name: 'sinopsis'
+                },
+                {
+                    data: 'tokped',
+                    name: 'tokopedia',
                 },
                 {
                     data: 'action',
@@ -109,18 +142,21 @@
             $.get("{{ route('blogs.index') }}" + '/' + blog_id, function(data) {
                 $('#detailsModal').modal('show');
                 $('#title').html(data.title);
-                $('#slug').html(data.slug);
-                $.each(data.categories, function (key, value) {
-                    $('#categories').append(`<button class="btn btn-sm btn-primary mr-1 categories">${value.name}</button>`);
+                $('#isbn').html(data.isbn);
+                $('#year').html(data.year);
+                $.each(data.append, function (key, value) {
+                    $('#categories').append('<button class="blog btn btn-sm btn-primary mr-1 mb-1">' + value.name + '</button>');
                 })
-                $('#meta_desc').html(data.meta_desc);
-                $('#meta_keyword').html(data.meta_keyword);
-                $('#body').html(data.body);
-                $('#image').attr('src', '/storage/' + data.image);
+                $('#page').html(data.page);
+                $('#synopsis').html(data.synopsis);
+                $('#tokped').html(data.tokped);
+                $('#price').html(data.price);
+                $('#dimension').html(data.dimension);
+                $('#image').attr('src', 'public/images/blogs' + data.image);
                 $('#createdAt').html(data.created_at);
-                $('#user').html(data.user.name);
+                $('#name').html(data.example_id.name);
             })
-            $('button.categories').remove();
+            $('button.blog').remove();
         })
     });
     </script>
@@ -139,14 +175,14 @@ aria-hidden="true">
             <div class="modal-body">
                 <ul class="list-group">
                     <button class="list-group-item-action list-group-item">Judul : <i id="title"></i></button>
-                    <button class="list-group-item-action list-group-item">Slug : <i id="slug"></i></button>
+                    <button class="list-group-item-action list-group-item">ISBN : <i id="isbn"></i></button>
                     <button class="list-group-item-action list-group-item">Gambar : <i><img class="img-fluid" id="image" src="" alt="null"></i></button>
-                    <button class="list-group-item-action list-group-item">Dibuat : <i id="createdAt"></i></button>
+                    <button class="list-group-item-action list-group-item">Tahun : <i id="year"></i></button>
                     <button class="list-group-item-action list-group-item" >Kategori : <i id="categories"></i></button>
-                    <button class="list-group-item-action list-group-item">Dibuat oleh : <i id="user"></i></button>
-                    <button class="list-group-item-action list-group-item">Meta Deskripsi : <i id="meta_desc"></i></button>
-                    <button class="list-group-item-action list-group-item">Meta Keyword : <i id="meta_keyword"></i></button>
-                    <button class="list-group-item-action list-group-item">Isi : <i id="body"></i></button>
+                    <button class="list-group-item-action list-group-item">Penulis : <i id="name"></i></button>
+                    <button class="list-group-item-action list-group-item">Tebal : <i id="page"></i></button>
+                    <button class="list-group-item-action list-group-item">Sinopsis : <i id="synopsis"></i></button>
+                    <button class="list-group-item-action list-group-item">Dibuat : <i id="createdAt" ></i></button>
                 </ul>
             </div>
             <div class="modal-footer">

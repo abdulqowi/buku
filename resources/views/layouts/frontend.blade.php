@@ -10,10 +10,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? config('app.name') }}</title>
+    <title>CAMPUSTAKA</title>
 
     <!-- Fav Icon -->
-    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('frontend/img/logo.png') }}" />
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

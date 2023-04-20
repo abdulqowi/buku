@@ -16,6 +16,7 @@ class CreateBlogCategoryTable extends Migration
         Schema::create('blog_category', function (Blueprint $table) {
             $table->foreignId('category_id');
             $table->foreignId('blog_id');
+           
         });
     }
 

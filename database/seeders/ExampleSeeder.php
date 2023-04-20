@@ -15,8 +15,10 @@ class ExampleSeeder extends Seeder
     public function run()
     {
         Example::create([
-            'first_name' => 'Abdul',
-            'last_name' => 'Qowi',
+            'name' => 'Example 1',
+            'image' => 'example1.jpg',
+            'detail' => 'Example 1 Detail',
+            
         ]);
     }
 }

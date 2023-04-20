@@ -36,7 +36,7 @@
                 @can('blog-read')
                 <a href="{{route('blogs.index')}}"">
                     <i class="metismenu-icon pe-7s-display2"></i>
-                    Blog
+                    Buku
                 </a>
                 @endcan
                 @can('category-read')
@@ -47,7 +47,7 @@
                 @endcan
                 <a href="{{ route('examples.index') }}">
                     <i class="metismenu-icon pe-7s-display2"></i>
-                    Example
+                    Data Penulis
                 </a>
             </li>
         </ul>

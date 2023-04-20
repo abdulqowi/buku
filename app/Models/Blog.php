@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','slug','body','image','meta_desc','meta_keyword','user_id'];
-
+    protected $guarded = [];
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class );
     }
 
     public function user()
@@ -20,8 +20,14 @@ class Blog extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getTakeImageAttribute()
+    public function getImagePathAttribute()
     {
-        return '/storage/' . $this->image;
+        return URL::to('/') . '/images/blogs/'.$this->image;
     }
+
+    public function examples()
+    {
+        return $this->belongsToMany(Example::class);
+    }
+
 }

@@ -18,7 +18,7 @@ class CategoryPostSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) {
             DB::table('blog_category')->insert([
                 'category_id' => rand(1, 7),
-                'blog_id' => rand(1, 50),
+                'blog_id' => rand(1, 50)
             ]);
         }
     }

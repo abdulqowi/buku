@@ -1,4 +1,4 @@
-<footer class="mt-5" style="background-color: #006a4e; position: relative;">
+<footer class="mt-5" style="background-color: #1363DF; position: relative;">
     <div class="custom-shape-divider-top-1615903491">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -21,9 +21,10 @@
             <div class="col-lg-4 my-4 text-center">
                 <h3 class="text-white">Contact</h3>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group text-left"><small><a href="tel:+6282117088123" style="color: #b8d5cd"><i class="fas fa-phone-alt"></i> 082117088123</a></small></li>
-                    <li class="list-group text-left"><small><a href="https://www.google.co.id/maps/@-6.6862284,108.4147599,20z/data=!4m2!7m1!2e1?hl=id" style="color: #b8d5cd"><i class="fas fa-map-marked-alt"></i> Desa Kempek Blok 3 Penangisan RT/RW 01/05 Kecamatan Gempol Kabupaten Cirebon Jawa Barat 41516</a></small></li>
-                    <li class="list-group text-left"><small><a href="mailto:ikatanremajapenangisan@gmail.com" style="color: #b8d5cd"><i class="fas fa-envelope"></i> ikatanremajapenangisan@gmail.com</a></small></li>
+                    <li class="list-group text-left"><small><a href="tel:+6282117088123" style="color: #b8d5cd"><i class="fas fa-phone-alt"></i> Call/WA: +62 8888 03 11 30</a></small></li>
+                    <li class="list-group text-left"><small><a href="https://www.google.co.id/maps/@-6.6862284,108.4147599,20z/data=!4m2!7m1!2e1?hl=id" style="color: #b8d5cd"><i class="fas fa-map-marked-alt"></i> Jl. H. Lebar No. 21B RT. 02 RW 01
+                        Meruya Selatan, Kembangan - Jakarta Barat 11650</a></small></li>
+                    <li class="list-group text-left"><small><a href="mailto:campustaka@gmail.com" style="color: #b8d5cd"><i class="fas fa-envelope"></i> E-mail: campustaka@gmail.com</a></small></li>
                 </ul>
             </div>
             <div class="col-lg-4 my-4">

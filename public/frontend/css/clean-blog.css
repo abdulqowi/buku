@@ -7,6 +7,7 @@
     color: #212529;
     font-family: "Gill Sans", sans-serif;
 }
+
 p {
     line-height: 1.5;
     margin: 25px 0;
@@ -15,7 +16,7 @@ p a {
     text-decoration: underline;
 }
 a:hover {
-    color: #2e856e;
+    color: #0096FF;
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
@@ -146,7 +147,7 @@ img::-moz-selection {
 }header.masthead {
     margin-bottom: 10px;
     background: no-repeat center center;
-    background-color: #006a4e;
+    background-color: #1363DF;
     background-attachment: scroll;
     position: relative;
     background-size: cover;
@@ -157,12 +158,10 @@ header.masthead .overlay {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #212529;
-    opacity: .5;
 }
 header.masthead .page-heading, header.masthead .post-heading, header.masthead .site-heading {
     padding: 150px 0 100px;
-    color: #fff;
+    color: #ffff;
 }
 @media only screen and (min-width:768px) {
     header.masthead .page-heading, header.masthead .post-heading, header.masthead .site-heading {
@@ -221,15 +220,17 @@ header.masthead .post-heading .subheading {
 }
 .post-preview>a:focus, .post-preview>a:hover {
     text-decoration: none;
-    color: #2e856e;
+    color: #0096FF;
 }
 .post-title {
-    color: #2e856e;
+    margin-left: 5px;
+    text-align: center;
+    color: #0096FF;
 }
 .post-preview>a>.post-title {
     font-size: 20px;
-    margin-top: 15px;
-    color: #006a4e;
+    margin-top: 10px;
+    color: #212529;
     margin-bottom: 5px;
 }
 .post-preview>a>.post-subtitle {
@@ -336,10 +337,18 @@ footer .copyright {
     margin: 0 10px;
 }
 .card {
-    padding: 30px;
+    border-radius: 5%;
+    
+    padding: 5px;
+    background-color: #fff;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
 }
 
+.item{
+    display: inline-block;
+    margin: 0 0 10px;
+    vertical-align: top;
+}
 
 :root {
   --input-border: #8b8a8b;
@@ -350,8 +359,8 @@ footer .copyright {
 
 .form-control {
   font-size: 16px;
-  // Capitalized to prevent Sass
-  // thinking it's the Sass max()
+  /* // Capitalized to prevent Sass
+  // thinking it's the Sass max() */
   font-size: Max(16px, 1em);
   font-family: inherit;
   padding: 0.25em 0.5em;
@@ -364,7 +373,7 @@ footer .copyright {
 .form-control:focus {
   border-color: hsl(164, 27%, 49%
   );
-  box-shadow: 0 0 0 3px
+  box-shadow: 0 0 0 3px;
   outline: 3px solid transparent;
 }
 

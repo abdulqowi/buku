@@ -16,15 +16,15 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('slug');
+            $table->string('isbn')->nullable();
             $table->string('image')->nullable();
-            $table->string('meta_desc')->nullable();
-            $table->string('meta_keyword')->nullable();
-            $table->text('body');
-            $table->unsignedBigInteger('user_id');
+            $table->string('dimension')->nullable();
+            $table->string('year')->nullable();
+            $table->text('page')->nullable();
+            $table->text('synopsis')->nullable();
+            $table->decimal('price',10,0)->nullable();
+            $table->string('tokped')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('RESTRICT')->onUpdate('RESTRICT');
         });
     }
 

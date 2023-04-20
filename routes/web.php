@@ -13,9 +13,8 @@ Route::post('logout',  [LoginController::class, 'logout'])->name('logout');
 // Home
 Route::get('/',  [HomeController::class, 'index'])->name('home');
 Route::get('about_us',  [HomeController::class, 'about_us'])->name('about_us');
-Route::get('{blog:slug}',  [HomeController::class, 'show'])->name('blog.show');
-Route::get('category/{category:slug}',  [HomeController::class, 'category'])->name('category');
-
+Route::get('{blog:title}',  [HomeController::class, 'show'])->name('blog.show');
+Route::get('category/{category:name}',  [HomeController::class, 'category'])->name('category');
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
         // Route::get('/dashboard', function () {

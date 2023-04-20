@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Example;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ExampleController extends Controller
 {
@@ -22,16 +24,22 @@ class ExampleController extends Controller
         return view('examples.edit', compact('example'));
     }
 
-    public function store()
-    {
-        $this->validate(request(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-        ]);
+    public function store(Request $request)
+    { 
+        $request->validate( [
+            'name' => 'required',
+            'detail' => 'required',
+        ]
+        );
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $image = date('YmdHis') . ''  . '.' . $extension;
+        $path = base_path('public/images/examples');
+        $request->file('image')->move($path, $image);
 
         Example::create([
-            'first_name' => request('first_name'),
-            'last_name' => request('last_name'),
+            'name' => request('name'),
+            'image' => $image,
+            'detail' => request('detail'),
         ]);
 
         flash('Data berhasil ditambahkan!');
@@ -41,13 +49,28 @@ class ExampleController extends Controller
     public function update(Example $example)
     {
         $this->validate(request(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-        ]);
+            'name' => 'required|max:255,' . $example->id,
+            'image' => 'image|mimes:jpg,jpeg,png|max:2048',
+            'detail' => 'required|max:255,',
+        ]
+        );
+
+        if (request('image')) {
+            Storage::delete($example->image);
+            $extension = request()->file('image')->getClientOriginalExtension();
+            $image = date('YmdHis') . ''  . '.' . $extension;
+            $path = base_path('public/images/examples');
+            request()->file('image')->move($path, $image);
+        } elseif ($example->image) {
+            $image = $example->image;
+        }else {
+            $image = null;
+        }
 
         $example->update([
-            'first_name' => request('first_name'),
-            'last_name' => request('last_name'),
+            'name' => request('name'),
+            'detail' => request('detail'),
+            'image' => $image,
         ]);
 
         flash('Data berhasil diedit!');

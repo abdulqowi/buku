@@ -2,12 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Example extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['first_name', 'last_name'];
+    protected $guarded = [];
+
+    public function getImagePathAttribute()
+    {
+        return URL::to('/') . '/images/examples/'.$this->image;
+    }
+    
+    public function blogs()
+    {
+        return $this->belongsToMany(Blog::class);
+    }
 }

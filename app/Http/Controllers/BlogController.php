@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Blog,Category};
-use Illuminate\Support\Str;
 use App\DataTables\BlogsDataTable;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\BlogStoreRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use PhpParser\Node\Expr\Assign;
+use App\Models\{Blog, Category,Example};
 
 class BlogController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:blog-read', ['only' => ['index','show']]);
-        $this->middleware('permission:blog-create', ['only' => ['create','store']]);
-        $this->middleware('permission:blog-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:blog-read', ['only' => ['index', 'show']]);
+        $this->middleware('permission:blog-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:blog-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:blog-delete', ['only' => ['destroy']]);
     }
 
@@ -27,7 +25,7 @@ class BlogController extends Controller
 
     public function show($id)
     {
-        $blog = Blog::with('categories', 'user')->findOrFail($id);
+        $blog = Blog::where('id', $id)->findOrFail($id);
         return response()->json($blog);
     }
 
@@ -35,43 +33,57 @@ class BlogController extends Controller
     {
         return view('blog.create', [
             'categories' => Category::all(),
+            'examples' => Example::all(),
         ]);
     }
 
-    public function store(BlogStoreRequest $request){
+    public function store(BlogStoreRequest $request)
+    {
         $request->validated();
-        $blog = Blog::create([
-            'title' =>request('title'),
-            'image' =>request('image') ? request()->file('image')->store('img/blogs') : null,
-            'slug' =>Str::slug(request('title')) ,
-            'user_id' => Auth::user()->id,
-            'body' =>request('body'),
-            'meta_desc' =>request('meta_desc'),
-            'meta_keyword' =>request('meta_keyword'),
-        ]);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $image = date('YmdHis') . ''  . '.' . $extension;
+        $path = base_path('public/images/blogs');
+        $request->file('image')->move($path, $image);
 
-        $blog->categories()->sync(request('category'));
+        $blog = Blog::create([
+            'title' => $request->title,
+            'isbn' => $request->isbn,
+            'image' => $image,
+            'dimension' => $request->dimension,
+            'year' => $request->year,
+            'synopsis' => $request->synopsis,
+            'price' => $request->price,
+            'page' => $request->page,
+            'tokped' => $request->tokped,
+        ]);
+        $blog->categories()->sync($request->category);
+        $blog->examples()->sync($request->example);
         flash('Data berhasil ditambahkan!');
-        return redirect()->route('blogs.index');
+        return redirect()->route('blogs.index');        
     }
-    public function edit(Blog $blog){
+    public function edit(Blog $blog)
+    {
         $categories = Category::all();
-        return view('blog.edit', compact('blog','categories'));
+        $examples = Example::all();
+        $blog->load( 'examples');
+        return view('blog.edit', compact('blog', 'categories', 'examples'));
     }
 
     public function update(Blog $blog)
     {
         $this->validate(request(), [
-            'title' => 'required|max:255|unique:blogs,title,' . $blog->id,
-            'body' => 'required',
+            'title' => 'required|max:255,' . $blog->id,
             'image' => 'image|mimes:jpg,jpeg,png|max:2058',
         ]);
 
         // Pengkondisian update gambar
         if (request('image')) {
             // Jika ada request maka delete old img
-            Storage::delete($blog->image);
-            $image = request()->file('image')->store('img/blogs');
+            File::delete('images/blogs/' . $blog->image);
+            $extension = request()->file('image')->getClientOriginalExtension();
+            $image = date('YmdHis') . ''  . '.' . $extension;
+            $path = base_path('public/images/blogs');
+            request()->file('image')->move($path, $image);
         } elseif ($blog->image) {
             // jika tidak ada biarkan old image
             $image = $blog->image;
@@ -81,20 +93,24 @@ class BlogController extends Controller
 
         $blog->update([
             'title' => request('title'),
+            'isbn' => request('isbn'),
+            'dimension' => request('dimension'),
             'image' => $image,
-            'slug' => Str::slug(request('title')) ,
-            'body' =>request('body'),
-            'meta_desc' =>request('meta_desc'),
-            'meta_keyword' =>request('meta_keyword')
+            'year' => request('year'),
+            'synopsis' => request('synopsis'),
+            'price' => request('price'),
+            'page' => request('page'),
+            'tokped' => request('tokped'),
         ]);
         $blog->categories()->sync(request('category'));
+        $blog->examples()->sync(request('example'));
         flash('Data berhasil diedit!');
         return redirect()->route('blogs.index');
     }
 
     public function destroy(Blog $blog)
     {
-        Storage::delete($blog->image);
+        File::delete('images/blogs/' . $blog->image);
         $blog->delete();
         flash('Data berhasil dihapus!');
         return redirect()->route('blogs.index');

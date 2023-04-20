@@ -30,7 +30,6 @@ class CategoryController extends Controller
 
         Category::create([
             'name' =>request('name'),
-            'slug' =>Str::slug(request('name')) ,
         ]);
 
         
@@ -67,8 +66,6 @@ class CategoryController extends Controller
 
         $category->update([
             'name' =>request('name'),
-            'slug' =>Str::slug(request('name')) ,
-
         ]);
         flash('Data berhasil ditambahkan!');
         return redirect()->route('categories.index');

@@ -39,7 +39,7 @@
                             <tr>
                                 <th class="text-center" width="3%">No</th>
                                 <th>Nama</th>
-                                <th>Slug</th>
+                                
                                 <th class="text-center" width="3%"><i class="fa fa-cogs"></i></th>
                             </tr>
                         </thead>
@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $example->name }}</td>
-                                <td>{{ $example->slug }}</td>
+                                
                                 <td class="text-center">
                                     <div class="dropdown d-inline-block">
                                         <a aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn-primary btn-sm text-white"></a>

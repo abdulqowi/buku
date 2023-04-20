@@ -38,8 +38,9 @@
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th class="text-center" width="3%">No</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Nama Penulis</th>
+                                <th>Deskripsi</th>
+                                <th>Gambar</th>
                                 <th class="text-center"><i class="fa fa-cogs"></i></th>
                             </tr>
                         </thead>
@@ -47,8 +48,9 @@
                             @foreach ($data as $example)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $example->first_name }}</td>
-                                <td>{{ $example->last_name }}</td>
+                                <td>{{ $example->name }}</td>
+                                <td>{{ $example->detail }}</td>
+                                <td>{{$example->image}}</td>
                                 <td>
                                     <div class="dropdown d-inline-block">
                                         <a aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn-primary btn-sm text-white"></a>

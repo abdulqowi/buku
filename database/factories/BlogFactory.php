@@ -17,9 +17,14 @@ class BlogFactory extends Factory
         $title = $this->faker->name();
         return [
             'title' => $title,
-            'slug' => Str::slug($title),
-            'body' => $this->faker->paragraph(),
-            'user_id' => 1
+            'isbn' => $this->faker->isbn13(),
+            'image' => $this->faker->imageUrl(),
+            'dimension' => $this->faker->randomElement(['20x20', '30x30', '40x40']),
+            'year' => $this->faker->year(),
+            'page' => $this->faker->randomElement(['100', '200', '300']),
+            'synopsis' => $this->faker->paragraph(),
+            'price' => $this->faker->randomElement(['10000', '20000', '30000']),
+            
         ];
     }
 }
