@@ -13,7 +13,7 @@
     <title>CAMPUSTAKA</title>
 
     <!-- Fav Icon -->
-    <link rel="shortcut icon" href="{{ asset('frontend/img/logo.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('frontend/img/logo.pngp') }}" />
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

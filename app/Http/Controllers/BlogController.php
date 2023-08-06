@@ -115,4 +115,5 @@ class BlogController extends Controller
         flash('Data berhasil dihapus!');
         return redirect()->route('blogs.index');
     }
+    
 }
