@@ -51,7 +51,10 @@
                                     <span style="display: inline-block; width: 120px;"><strong>Kategori</strong></span> : 
                                     <span>
                                         @foreach ($post->categories as $category)
-                                            <a href="{{ route('category', $category->name) }}">{{ $category->name }}</a>@unless ($loop->last), @endunless
+                                        @if ($category->name !== 'Terpopuler')
+                                            <a href="{{ route('category', $category->name) }}">{{ $category->name }}</a>
+                                            @unless ($loop->last), @endunless
+                                        @endif
                                         @endforeach                                    
                                     </span>
                                 </div>

@@ -42,8 +42,8 @@
                                 <th>Tahun</th>
                                 <th>Harga</th>
                                 <th>Sinopsis</th>
-                                {{-- <th>Penulis</th> --}}
                                 <th>Kategori</th>
+                                <th>Penulis</th>
                                 <th class="text-center" width="3%"><i class="fa fa-cogs"></i></th>
                             </tr>
                         </thead>
@@ -104,7 +104,7 @@
                         orderable: false,
                         searchable: false
                     },
-                 
+
                     {
                         data: 'categories', // Kolom baru untuk kategori
                         name: 'categories', // Menggunakan relasi dan nama kolom kategori
@@ -118,13 +118,19 @@
                             return categoryNames.slice(0, -2); // Menghapus koma dan spasi terakhir
                         }
                     },
-                    // {
-                    //     data: 'examples', 
-                    //     name: 'examples',
-                    //     orderable: true, 
-                    //     searchable: true, 
-                    // },
-                    
+                    {
+                        data: 'examples',
+                        name: 'examples', // Ubah sesuai kebutuhan
+                        orderable: true,
+                        searchable: true,
+                        render: function(data) {
+                            var exampleNames = '';
+                            $.each(data, function(index, example) {
+                                exampleNames += example.name + ', ';
+                            });
+                            return exampleNames.slice(0, -2);
+                        }
+                    },
                     {
                         data: 'action',
                         name: 'action',
