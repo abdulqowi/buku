@@ -121,8 +121,8 @@
                     {
                         data: 'examples',
                         name: 'examples', // Ubah sesuai kebutuhan
-                        orderable: true,
-                        searchable: true,
+                        orderable: false,
+                        searchable: false,
                         render: function(data) {
                             var exampleNames = '';
                             $.each(data, function(index, example) {
