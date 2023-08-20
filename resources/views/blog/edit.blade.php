@@ -9,12 +9,12 @@
                         <i class="pe-7s-car icon-gradient bg-mean-fruit">
                         </i>
                     </div>
-                    <div>Edit blog
+                    <div>Edit Buku
                         <div class="page-title-subheading">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="">blogs</a></li>
-                                <li class="active breadcrumb-item" aria-current="page">Edit blog</li>
+                                <li class="breadcrumb-item"><a href="">Buku</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Edit Buku</li>
                             </ol>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
 
         <div class="main-card mb-3 card">
             <div class="card-header">
-                <h5 class="card-title">Edit blog</h5>
+                <h5 class="card-title">Edit Buku</h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('blogs.update', $blog->id) }}" method="post" enctype="multipart/form-data">
