@@ -20,5 +20,11 @@ class ExampleSeeder extends Seeder
             'detail' => 'Example 1 Detail',
             
         ]);
+        Example::create([
+            'name' => 'anonim',
+            'image' => 'example1.jpg',
+            'detail' => 'Example 1 Detail',
+            
+        ]);
     }
 }
