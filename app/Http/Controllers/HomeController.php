@@ -55,11 +55,13 @@ class HomeController extends Controller
 
     public function category(Category $category)
     {
+        $query = request('query');
         if ($category) {
             return view('frontend.category', [
                 'categories' => Category::whereNotIn('name', ['Terpopuler', 'Populer', 'Best Seller'])->get(),
                 'category' => $category->name,
                 'posts' => $category->blogs()->latest()->simplePaginate(6),
+                'posts' => $category->blogs()->where('title', 'like', '%' . $query . '%')->latest()->simplePaginate(6),
             ]);
         } else {
             abort(404);
