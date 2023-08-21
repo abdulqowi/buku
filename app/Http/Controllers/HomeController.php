@@ -57,9 +57,9 @@ class HomeController extends Controller
     {
         if ($category) {
             return view('frontend.category', [
-                'categories' => Category::get('name'),
+                'categories' => Category::whereNotIn('name', ['Terpopuler', 'Populer', 'Best Seller'])->get(),
                 'category' => $category->name,
-                'posts' => $category->blogs()->latest()->simplePaginate(5),
+                'posts' => $category->blogs()->latest()->simplePaginate(6),
             ]);
         } else {
             abort(404);

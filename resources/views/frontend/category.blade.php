@@ -19,39 +19,43 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <h3 class="post-title">{{ $category }}</h3>
-                @include('frontend.components.alert')
-                @foreach ($posts as $post)
-                    <div class="item">
-                        <div class="card my-3">
-                            @if ($post->image)
-                                <img src="{{ $post->getImagePathAttribute() }}" class="card-img-top"
-                                    style="height: 120px; width:120px; object-fit: cover; object-position: center;">
-                            @endif
-                            <div class="card-body d-flex flex-column">
-                                <a href="{{ route('blog.show', $post->title) }}" class="card-title mb-auto"
-                                    style="max-width: 80px">
-                                    {{ $post->title }}
-                                </a>
-                                <div class="mt-auto">
-                                    <p class="card-text" style="margin-bottom: 0;">Rp
+            <div class="col-lg-8 mx-auto">
+                <div class="card border-1 shadow-sm mt-3">
+                    <h3 class="post-title mt-3">{{ $category }}</h3>
+                    <div class="d-flex flex-row justify-content-center flex-wrap">
+                        @foreach ($posts as $post)
+                            <div class="card-img-top ml-2 mr-2 mb-3" style="width: 100px;">
+                                @if ($post->image)
+                                    <img src="{{ $post->getImagePathAttribute() }}" class="card-img-top"
+                                        style="height: 100px; width: 100px; object-fit: cover; object-position: center;">
+                                @endif
+                                <div class="post-preview text-center">
+                                    <a href="{{ route('blog.show', $post->title) }}">
+                                        <p style="max-width: 100%; height:40px;">
+                                            {{ $post->title }}
+                                        </p>
+                                    </a>
+                                    <p class="card-text mb-3 ml-3" style="position: absolute; bottom: 0;">Rp
                                         {{ number_format($post->price, 0, ',', '.') }}</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="col-lg-4">
-                <div class="card my-3" style=" width:200px margin-left:0%">
-                    <h3 class="post-title" style="text-align: center">Kategori</h3>
-                    <ul class="list-group list-group-flush">
-                        @foreach ($categories as $cat)
-                            <li class="list-group-item @if ($category === $cat->name) active @endif"><a
-                                    href="{{ route('category', $cat->name) }}">{{ $cat->name }}</a></li>
                         @endforeach
-                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mt-3">
+                <div class="card border-1 shadow-sm">
+                    <div class="card-body text-center">
+                        <h3 class="post-title">Kategori</h3>
+                        <ul class="list-group list-group-flush">
+                            @foreach ($categories as $category)
+                                <li class="list-group-item border-0 bg-transparent">
+                                    <a href="{{ route('category', $category->name) }}"
+                                        class="text-decoration-none">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
