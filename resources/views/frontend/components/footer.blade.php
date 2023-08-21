@@ -15,7 +15,7 @@
                 <h3 class="text-white">Contact</h3>
                 <ul class="list-inline text-center mt-3 mb-3">
                     <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://www.youtube.com/@campustaka_jkt">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://www.instagram.com/campustaka_jkt/">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://facebook.com/campustaka.jkt">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
@@ -39,10 +39,10 @@
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://twitter.com/Campustaka_Jkt">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
