@@ -42,6 +42,7 @@ class BlogController extends Controller
         $request->validated();
         $extension = $request->file('image')->getClientOriginalExtension();
         $image = date('YmdHis') . ''  . '.' . $extension;
+        //ganti utk deploy
         $path = base_path('public/images/blogs');
         $request->file('image')->move($path, $image);
 
@@ -78,7 +79,7 @@ class BlogController extends Controller
 
         // Pengkondisian update gambar
         if (request('image')) {
-            // Jika ada request maka delete old img
+            // Jika ada request maka delete old img, nanti ganti utk deployment
             File::delete('images/blogs/' . $blog->image);
             $extension = request()->file('image')->getClientOriginalExtension();
             $image = date('YmdHis') . ''  . '.' . $extension;

@@ -15,7 +15,8 @@ class HomeController extends Controller
             // post kategori terpopuler
             'best_post' => Blog::whereHas('categories', function ($query) {
                 $query->where('name', 'Terpopuler');
-        })->with('categories')->limit(6)->get(),
+        })->with('categories')->orderBy('created_at')->limit(6)->get(),
+
         //simple paginate tidak bisa pakai latest()
             'new_post' => Blog::where("title", "like", "%$query%")->latest()->simplePaginate(18),
             //tampilan kategori kecuali terpopuler
