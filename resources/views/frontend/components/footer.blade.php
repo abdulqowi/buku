@@ -48,7 +48,7 @@
                     </li>
                 </ul>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group text-center"><small><a href="tel:+6282117088123" style="color: #b8d5cd"><i class="fas fa-phone-alt"></i> Call/WA: +62 8888 03 11 30</a></small></li>
+                    <li class="list-group text-center"><small><a href="#" style="color: #b8d5cd"><i class="fas fa-phone-alt"></i> Call/WA: +62 8888 03 11 30</a></small></li>
                     <li class="list-group text-center"><small><a href="#" style="color: #b8d5cd"><i class="fas fa-map-marked-alt"></i> Jl. H. Lebar No. 21B RT. 02 RW 01
                         Meruya Selatan, Kembangan - Jakarta Barat 11650</a></small></li>
                     <li class="list-group text-center"><small><a href="mailto:campustaka@gmail.com" style="color: #b8d5cd"><i class="fas fa-envelope"></i> E-mail: campustaka@gmail.com</a></small></li>
