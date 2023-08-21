@@ -7,14 +7,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <div class="search">
-                <form action="">
-                    <input type="text" placeholder="Cari . . ." name="query">
+                @if (!in_array(Route::currentRouteName(), ['blog.show', 'about_us'])) <!-- Ganti dengan nama rute yang sesuai -->
+                    <form action="">
+                        <input type="text" placeholder="Cari . . ." name="query">
                         <span>
                             <i class="fas fa-search"></i>
                         </span>
-                    </input>
-                </form>
+                    </form>
+                @endif
             </div>
+            
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
